@@ -20,6 +20,8 @@ def extract_sql_statement(output):
     else:
         return "No SQL statement found."
 
+
+
 import pandas as pd  # Für das Lesen der CSV-Datei und DataFrame-Funktionalität
 import sqlite3       # Für die Verbindung zur SQLite-Datenbank
 
@@ -42,3 +44,11 @@ def import_csv_to_sqlite(csv_file, table_name, db_name=':memory:'):
         df.to_sql(table_name, conn, if_exists='replace', index=False)  # Daten in die SQLite-Tabelle importieren
     finally:
         conn.close()  # Datenbankverbindung schließen
+
+
+
+import random
+from datetime import datetime, timedelta
+# Funktion, um zufällige Datumswerte zu erzeugen
+def random_date(start, end):
+    return start + timedelta(days=random.randint(0, (end - start).days))

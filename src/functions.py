@@ -96,3 +96,83 @@ from datetime import datetime, timedelta
 # Funktion, um zufällige Datumswerte zu erzeugen
 def random_date(start, end):
     return start + timedelta(days=random.randint(0, (end - start).days))
+
+
+
+
+import sqlite3
+
+def create_tables(db_name='university_database.db'):
+    """
+    Erstellt die erforderlichen Tabellen in der angegebenen SQLite-Datenbank.
+
+    Parameter:
+    db_name (str): Der Name der SQLite-Datenbankdatei. Standard ist 'university_database.db'.
+    """
+    # Verbindung zur SQLite-Datenbank herstellen (oder erstellen, falls sie noch nicht existiert)
+    conn = sqlite3.connect(db_name)
+    cursor = conn.cursor()
+
+    # SQL-Befehle zum Erstellen der Tabellen basierend auf deinem Schema
+
+    # 1. Tabelle: STUDENT_DIMENSION
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS STUDENT_DIMENSION (
+            Student_ID INTEGER PRIMARY KEY,
+            First_Name TEXT NOT NULL,
+            Last_Name TEXT NOT NULL,
+            Date_of_Birth DATE,
+            Enrollment_Date DATE,
+            Email TEXT UNIQUE
+        );
+    """)
+
+    # 2. Tabelle: COURSE_DIMENSION
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS COURSE_DIMENSION (
+            Course_ID INTEGER PRIMARY KEY,
+            Course_Name TEXT NOT NULL,
+            Credits INTEGER,
+            Department_ID INTEGER,
+            FOREIGN KEY (Department_ID) REFERENCES DEPARTMENT_DIMENSION(Department_ID)
+        );
+    """)
+
+    # 3. Tabelle: PROFESSOR_DIMENSION
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS PROFESSOR_DIMENSION (
+            Professor_ID INTEGER PRIMARY KEY,
+            First_Name TEXT NOT NULL,
+            Last_Name TEXT NOT NULL,
+            Email TEXT UNIQUE
+        );
+    """)
+
+    # 4. Tabelle: DEPARTMENT_DIMENSION
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS DEPARTMENT_DIMENSION (
+            Department_ID INTEGER PRIMARY KEY,
+            Department_Name TEXT NOT NULL
+        );
+    """)
+
+    # 5. Tabelle: ENROLLMENT_FACTS
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS ENROLLMENT_FACTS (
+            Enrollment_ID INTEGER PRIMARY KEY,
+            Student_ID INTEGER,
+            Course_ID INTEGER,
+            Professor_ID INTEGER,
+            Enrollment_Date DATE,
+            Grade TEXT CHECK(Grade IN ('A', 'B', 'C', 'D', 'F')),
+            FOREIGN KEY (Student_ID) REFERENCES STUDENT_DIMENSION(Student_ID),
+            FOREIGN KEY (Course_ID) REFERENCES COURSE_DIMENSION(Course_ID),
+            FOREIGN KEY (Professor_ID) REFERENCES PROFESSOR_DIMENSION(Professor_ID)
+        );
+    """)
+
+    # Änderungen bestätigen und Verbindung schließen
+    conn.commit()
+    conn.close()
+    
+    print("Tabellen wurden erfolgreich erstellt.")

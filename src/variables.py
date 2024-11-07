@@ -1,3 +1,4 @@
+# Schema für das ER-Diagramm als Mermaid-Code
 database_schema_mermaid='''
     erDiagram
         %% Faktentabelle

@@ -104,10 +104,10 @@ import sqlite3
 
 def create_tables(db_name='university_database.db'):
     """
-    Erstellt die erforderlichen Tabellen in der angegebenen SQLite-Datenbank.
+    Creates the required tables in the specified SQLite database.
 
-    Parameter:
-    db_name (str): Der Name der SQLite-Datenbankdatei. Standard ist 'university_database.db'.
+    Parameters:
+    db_name (str): The name of the SQLite database file. Default is 'university_database.db'.
     """
     # Verbindung zur SQLite-Datenbank herstellen (oder erstellen, falls sie noch nicht existiert)
     conn = sqlite3.connect(db_name)

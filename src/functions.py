@@ -22,30 +22,6 @@ def extract_sql_statement(output):
 
 
 
-# import pandas as pd  # Für das Lesen der CSV-Datei und DataFrame-Funktionalität
-# import sqlite3       # Für die Verbindung zur SQLite-Datenbank
-
-# def import_csv_to_sqlite(csv_file, table_name, db_name=':memory:'):
-#     """
-#     Imports data from a CSV file into a specified SQLite database table.
-
-#     Parameters:
-#     csv_file (str): The path to the CSV file to import.
-#     table_name (str): The name of the table in the SQLite database where the data will be imported.
-#     db_name (str): The name of the SQLite database file (default is ':memory:' for an in-memory database).
-
-#     Returns:
-#     None
-#     """
-#     # Verbindung zur SQLite-Datenbank herstellen (Standard ist eine in-memory-Datenbank)
-#     conn = sqlite3.connect(db_name)
-#     try:
-#         df = pd.read_csv(csv_file)  # CSV-Datei einlesen
-#         df.to_sql(table_name, conn, if_exists='replace', index=False)  # Daten in die SQLite-Tabelle importieren
-#     finally:
-#         conn.close()  # Datenbankverbindung schließen
-
-
 import os
 import sqlite3
 import pandas as pd

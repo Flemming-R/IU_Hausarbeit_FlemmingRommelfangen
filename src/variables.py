@@ -50,14 +50,3 @@ database_schema_mermaid='''
         COURSE_DIMENSION }|--|| DEPARTMENT_DIMENSION : "part of"
     '''
 
-# HTML und JavaScript-Code zum Rendern des Mermaid-Diagramms
-mermaid_html = f"""
-<div class="mermaid">
-{database_schema_mermaid}
-</div>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-mermaid.initialize({{ startOnLoad: true }});
-</script>
-"""
-

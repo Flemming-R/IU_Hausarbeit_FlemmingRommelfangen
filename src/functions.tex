@@ -1,0 +1,272 @@
+
+\documentclass{article}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+
+
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@ges}{\let\PY@bf=\textbf\let\PY@it=\textit}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+\begin{document}
+
+\section*{}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{re}
+
+\PY{k}{def} \PY{n+nf}{extract\PYZus{}sql\PYZus{}statement}\PY{p}{(}\PY{n}{output}\PY{p}{)}\PY{p}{:}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+sd}{    Extracts an SQL statement from a given string that begins with \PYZdq{}SELECT\PYZdq{} and ends with a semicolon.}
+
+\PY{l+s+sd}{    This function searches the input string `output` for an SQL statement that starts with the keyword \PYZdq{}SELECT\PYZdq{}}
+\PY{l+s+sd}{    and ends with a semicolon (`;`). The search is case\PYZhy{}insensitive and spans multiple lines if needed.}
+
+\PY{l+s+sd}{    Parameters:}
+\PY{l+s+sd}{    output (str): A string potentially containing an SQL statement.}
+
+\PY{l+s+sd}{    Returns:}
+\PY{l+s+sd}{    str: The extracted SQL statement without leading or trailing whitespace if found,}
+\PY{l+s+sd}{         or \PYZdq{}No SQL statement found.\PYZdq{} if no matching SQL statement is present.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{n}{match} \PY{o}{=} \PY{n}{re}\PY{o}{.}\PY{n}{search}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{(SELECT.*?;)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{output}\PY{p}{,} \PY{n}{re}\PY{o}{.}\PY{n}{DOTALL} \PY{o}{|} \PY{n}{re}\PY{o}{.}\PY{n}{IGNORECASE}\PY{p}{)}
+    \PY{k}{if} \PY{n}{match}\PY{p}{:}
+        \PY{k}{return} \PY{n}{match}\PY{o}{.}\PY{n}{group}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Gibt das gefundene SQL\PYZhy{}Statement zurück, ohne zusätzliche Leerzeichen}
+    \PY{k}{else}\PY{p}{:}
+        \PY{k}{return} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{No SQL statement found.}\PY{l+s+s2}{\PYZdq{}}
+
+
+
+\PY{k+kn}{import} \PY{n+nn}{os}
+\PY{k+kn}{import} \PY{n+nn}{sqlite3}
+\PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+
+\PY{k}{def} \PY{n+nf}{import\PYZus{}csv\PYZus{}to\PYZus{}sqlite}\PY{p}{(}\PY{n}{csv\PYZus{}file}\PY{p}{,} \PY{n}{table\PYZus{}name}\PY{p}{,} \PY{n}{db\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{:memory:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+sd}{    Imports data from a CSV file into a specified SQLite database table.}
+
+\PY{l+s+sd}{    Parameters:}
+\PY{l+s+sd}{    csv\PYZus{}file (str): The path to the CSV file to import.}
+\PY{l+s+sd}{    table\PYZus{}name (str): The name of the table in the SQLite database where the data will be imported.}
+\PY{l+s+sd}{    db\PYZus{}name (str): The name of the SQLite database file (default is \PYZsq{}:memory:\PYZsq{} for an in\PYZhy{}memory database).}
+
+\PY{l+s+sd}{    Returns:}
+\PY{l+s+sd}{    None}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{c+c1}{\PYZsh{} Verbindung zur SQLite\PYZhy{}Datenbank herstellen}
+    \PY{n}{conn} \PY{o}{=} \PY{n}{sqlite3}\PY{o}{.}\PY{n}{connect}\PY{p}{(}\PY{n}{db\PYZus{}name}\PY{p}{)}
+    \PY{k}{try}\PY{p}{:}
+        \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{csv\PYZus{}file}\PY{p}{)}  \PY{c+c1}{\PYZsh{} CSV\PYZhy{}Datei einlesen}
+        \PY{n}{df}\PY{o}{.}\PY{n}{to\PYZus{}sql}\PY{p}{(}\PY{n}{table\PYZus{}name}\PY{p}{,} \PY{n}{conn}\PY{p}{,} \PY{n}{if\PYZus{}exists}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{replace}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{index}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Daten in die SQLite\PYZhy{}Tabelle importieren}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Importiert: }\PY{l+s+si}{\PYZob{}}\PY{n}{table\PYZus{}name}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{k}{finally}\PY{p}{:}
+        \PY{n}{conn}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Datenbankverbindung schließen}
+
+\PY{k}{def} \PY{n+nf}{import\PYZus{}all\PYZus{}csv\PYZus{}to\PYZus{}sqlite}\PY{p}{(}\PY{n}{folder\PYZus{}path}\PY{p}{,} \PY{n}{db\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{:memory:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+sd}{    Imports all CSV files from a specified folder into a SQLite database, using the file name as the table name.}
+
+\PY{l+s+sd}{    Parameters:}
+\PY{l+s+sd}{    folder\PYZus{}path (str): The path to the folder containing CSV files.}
+\PY{l+s+sd}{    db\PYZus{}name (str): The name of the SQLite database file (default is \PYZsq{}:memory:\PYZsq{} for an in\PYZhy{}memory database).}
+
+\PY{l+s+sd}{    Returns:}
+\PY{l+s+sd}{    None}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{c+c1}{\PYZsh{} Für jede CSV\PYZhy{}Datei im Ordner}
+    \PY{k}{for} \PY{n}{file\PYZus{}name} \PY{o+ow}{in} \PY{n}{os}\PY{o}{.}\PY{n}{listdir}\PY{p}{(}\PY{n}{folder\PYZus{}path}\PY{p}{)}\PY{p}{:}
+        \PY{k}{if} \PY{n}{file\PYZus{}name}\PY{o}{.}\PY{n}{endswith}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}  \PY{c+c1}{\PYZsh{} Nur CSV\PYZhy{}Dateien}
+            \PY{n}{csv\PYZus{}file\PYZus{}path} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{folder\PYZus{}path}\PY{p}{,} \PY{n}{file\PYZus{}name}\PY{p}{)}
+            \PY{n}{table\PYZus{}name} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{splitext}\PY{p}{(}\PY{n}{file\PYZus{}name}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}  \PY{c+c1}{\PYZsh{} Tabellenname ohne Dateiendung}
+            \PY{n}{import\PYZus{}csv\PYZus{}to\PYZus{}sqlite}\PY{p}{(}\PY{n}{csv\PYZus{}file\PYZus{}path}\PY{p}{,} \PY{n}{table\PYZus{}name}\PY{p}{,} \PY{n}{db\PYZus{}name}\PY{p}{)}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Tabelle }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+si}{\PYZob{}}\PY{n}{table\PYZus{}name}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{ wurde aus }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+si}{\PYZob{}}\PY{n}{file\PYZus{}name}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{ importiert.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+
+\PY{k+kn}{import} \PY{n+nn}{random}
+\PY{k+kn}{from} \PY{n+nn}{datetime} \PY{k+kn}{import} \PY{n}{datetime}\PY{p}{,} \PY{n}{timedelta}
+\PY{c+c1}{\PYZsh{} Funktion, um zufällige Datumswerte zu erzeugen}
+\PY{k}{def} \PY{n+nf}{random\PYZus{}date}\PY{p}{(}\PY{n}{start}\PY{p}{,} \PY{n}{end}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{n}{start} \PY{o}{+} \PY{n}{timedelta}\PY{p}{(}\PY{n}{days}\PY{o}{=}\PY{n}{random}\PY{o}{.}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{p}{(}\PY{n}{end} \PY{o}{\PYZhy{}} \PY{n}{start}\PY{p}{)}\PY{o}{.}\PY{n}{days}\PY{p}{)}\PY{p}{)}
+
+
+
+
+\PY{k+kn}{import} \PY{n+nn}{sqlite3}
+
+\PY{k}{def} \PY{n+nf}{create\PYZus{}tables}\PY{p}{(}\PY{n}{db\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{university\PYZus{}database.db}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+\PY{+w}{    }\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+sd}{    Creates the required tables in the specified SQLite database.}
+
+\PY{l+s+sd}{    Parameters:}
+\PY{l+s+sd}{    db\PYZus{}name (str): The name of the SQLite database file. Default is \PYZsq{}university\PYZus{}database.db\PYZsq{}.}
+\PY{l+s+sd}{    \PYZdq{}\PYZdq{}\PYZdq{}}
+    \PY{c+c1}{\PYZsh{} Verbindung zur SQLite\PYZhy{}Datenbank herstellen (oder erstellen, falls sie noch nicht existiert)}
+    \PY{n}{conn} \PY{o}{=} \PY{n}{sqlite3}\PY{o}{.}\PY{n}{connect}\PY{p}{(}\PY{n}{db\PYZus{}name}\PY{p}{)}
+    \PY{n}{cursor} \PY{o}{=} \PY{n}{conn}\PY{o}{.}\PY{n}{cursor}\PY{p}{(}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} SQL\PYZhy{}Befehle zum Erstellen der Tabellen basierend auf dem Schema in variables.py}
+
+    \PY{c+c1}{\PYZsh{} 1. Tabelle: STUDENT\PYZus{}DIMENSION}
+    \PY{n}{cursor}\PY{o}{.}\PY{n}{execute}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+s2}{        CREATE TABLE IF NOT EXISTS STUDENT\PYZus{}DIMENSION (}
+\PY{l+s+s2}{            Student\PYZus{}ID INTEGER PRIMARY KEY,}
+\PY{l+s+s2}{            First\PYZus{}Name TEXT NOT NULL,}
+\PY{l+s+s2}{            Last\PYZus{}Name TEXT NOT NULL,}
+\PY{l+s+s2}{            Date\PYZus{}of\PYZus{}Birth DATE,}
+\PY{l+s+s2}{            Enrollment\PYZus{}Date DATE,}
+\PY{l+s+s2}{            Email TEXT UNIQUE}
+\PY{l+s+s2}{        );}
+\PY{l+s+s2}{    }\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} 2. Tabelle: COURSE\PYZus{}DIMENSION}
+    \PY{n}{cursor}\PY{o}{.}\PY{n}{execute}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+s2}{        CREATE TABLE IF NOT EXISTS COURSE\PYZus{}DIMENSION (}
+\PY{l+s+s2}{            Course\PYZus{}ID INTEGER PRIMARY KEY,}
+\PY{l+s+s2}{            Course\PYZus{}Name TEXT NOT NULL,}
+\PY{l+s+s2}{            Credits INTEGER,}
+\PY{l+s+s2}{            Department\PYZus{}ID INTEGER,}
+\PY{l+s+s2}{            FOREIGN KEY (Department\PYZus{}ID) REFERENCES DEPARTMENT\PYZus{}DIMENSION(Department\PYZus{}ID)}
+\PY{l+s+s2}{        );}
+\PY{l+s+s2}{    }\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} 3. Tabelle: PROFESSOR\PYZus{}DIMENSION}
+    \PY{n}{cursor}\PY{o}{.}\PY{n}{execute}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+s2}{        CREATE TABLE IF NOT EXISTS PROFESSOR\PYZus{}DIMENSION (}
+\PY{l+s+s2}{            Professor\PYZus{}ID INTEGER PRIMARY KEY,}
+\PY{l+s+s2}{            First\PYZus{}Name TEXT NOT NULL,}
+\PY{l+s+s2}{            Last\PYZus{}Name TEXT NOT NULL,}
+\PY{l+s+s2}{            Email TEXT UNIQUE}
+\PY{l+s+s2}{        );}
+\PY{l+s+s2}{    }\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} 4. Tabelle: DEPARTMENT\PYZus{}DIMENSION}
+    \PY{n}{cursor}\PY{o}{.}\PY{n}{execute}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+s2}{        CREATE TABLE IF NOT EXISTS DEPARTMENT\PYZus{}DIMENSION (}
+\PY{l+s+s2}{            Department\PYZus{}ID INTEGER PRIMARY KEY,}
+\PY{l+s+s2}{            Department\PYZus{}Name TEXT NOT NULL}
+\PY{l+s+s2}{        );}
+\PY{l+s+s2}{    }\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} 5. Tabelle: ENROLLMENT\PYZus{}FACTS}
+    \PY{n}{cursor}\PY{o}{.}\PY{n}{execute}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+s2}{        CREATE TABLE IF NOT EXISTS ENROLLMENT\PYZus{}FACTS (}
+\PY{l+s+s2}{            Enrollment\PYZus{}ID INTEGER PRIMARY KEY,}
+\PY{l+s+s2}{            Student\PYZus{}ID INTEGER,}
+\PY{l+s+s2}{            Course\PYZus{}ID INTEGER,}
+\PY{l+s+s2}{            Professor\PYZus{}ID INTEGER,}
+\PY{l+s+s2}{            Enrollment\PYZus{}Date DATE,}
+\PY{l+s+s2}{            Grade TEXT CHECK(Grade IN (}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{A}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{, }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{B}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{, }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{C}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{, }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{D}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{, }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{F}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{)),}
+\PY{l+s+s2}{            FOREIGN KEY (Student\PYZus{}ID) REFERENCES STUDENT\PYZus{}DIMENSION(Student\PYZus{}ID),}
+\PY{l+s+s2}{            FOREIGN KEY (Course\PYZus{}ID) REFERENCES COURSE\PYZus{}DIMENSION(Course\PYZus{}ID),}
+\PY{l+s+s2}{            FOREIGN KEY (Professor\PYZus{}ID) REFERENCES PROFESSOR\PYZus{}DIMENSION(Professor\PYZus{}ID)}
+\PY{l+s+s2}{        );}
+\PY{l+s+s2}{    }\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} Änderungen bestätigen und Verbindung schließen}
+    \PY{n}{conn}\PY{o}{.}\PY{n}{commit}\PY{p}{(}\PY{p}{)}
+    \PY{n}{conn}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+    
+    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Tabellen wurden erfolgreich erstellt.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+\end{document}

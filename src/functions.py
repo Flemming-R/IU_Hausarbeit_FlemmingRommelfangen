@@ -38,7 +38,7 @@ def import_csv_to_sqlite(csv_file, table_name, db_name=':memory:'):
     Returns:
     None
     """
-    # Verbindung zur SQLite-Datenbank herstellen (Standard ist eine in-memory-Datenbank)
+    # Verbindung zur SQLite-Datenbank herstellen
     conn = sqlite3.connect(db_name)
     try:
         df = pd.read_csv(csv_file)  # CSV-Datei einlesen
@@ -89,7 +89,7 @@ def create_tables(db_name='university_database.db'):
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
 
-    # SQL-Befehle zum Erstellen der Tabellen basierend auf deinem Schema
+    # SQL-Befehle zum Erstellen der Tabellen basierend auf dem Schema in variables.py
 
     # 1. Tabelle: STUDENT_DIMENSION
     cursor.execute("""

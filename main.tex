@@ -395,7 +395,7 @@
 
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{76}{\boxspacing}
+\prompt{In}{incolor}{1}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{subprocess}
 
@@ -410,7 +410,7 @@ Ollama server is now running in the background.
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{77}{\boxspacing}
+\prompt{In}{incolor}{2}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Lege das LLM fest, mit dem nachfolgend gearbeitet wird.}
 \PY{n}{model} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{qwen2.5:7b}\PY{l+s+s2}{\PYZdq{}}
@@ -419,7 +419,7 @@ Ollama server is now running in the background.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{78}{\boxspacing}
+\prompt{In}{incolor}{3}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Code zum Erstellen eines Modells mit festgelegtem Seed und Temperatur in der Modelfile}
 
@@ -455,41 +455,19 @@ Ollama server is now running in the background.
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{79}{\boxspacing}
+\prompt{In}{incolor}{ }{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Gewähltes Modell von Ollama herunterladen}
 \PY{n}{process} \PY{o}{=} \PY{n}{subprocess}\PY{o}{.}\PY{n}{Popen}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ollama}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{pull}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{model}\PY{p}{]}\PY{p}{,} \PY{n}{stdout}\PY{o}{=}\PY{n}{subprocess}\PY{o}{.}\PY{n}{PIPE}\PY{p}{,} \PY{n}{stderr}\PY{o}{=}\PY{n}{subprocess}\PY{o}{.}\PY{n}{PIPE}\PY{p}{)}
-
-\PY{c+c1}{\PYZsh{} Ausgabe anzeigen}
-\PY{n}{stdout}\PY{p}{,} \PY{n}{stderr} \PY{o}{=} \PY{n}{process}\PY{o}{.}\PY{n}{communicate}\PY{p}{(}\PY{p}{)}
-\PY{n+nb}{print}\PY{p}{(}\PY{n}{stdout}\PY{o}{.}\PY{n}{decode}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{utf\PYZhy{}8}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
-
-\PY{k}{if} \PY{n}{stderr}\PY{p}{:}
-    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Error:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{stderr}\PY{o}{.}\PY{n}{decode}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{utf\PYZhy{}8}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
-\PY{k}{else}\PY{p}{:}
-    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}}\PY{n}{model}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ pulled successfully.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
-Error: pulling manifest ⠋ pulling manifest ⠹
-pulling manifest ⠹ pulling manifest ⠸
-pulling manifest ⠼ pulling manifest ⠴
-pulling manifest
-pulling 2bada8a74506{\ldots} 100\% ▕████████████████▏ 4.7 GB
-pulling 66b9ea09bd5b{\ldots} 100\% ▕████████████████▏   68 B
-pulling eb4402837c78{\ldots} 100\% ▕████████████████▏ 1.5 KB
-pulling 832dd9e00a68{\ldots} 100\% ▕████████████████▏  11 KB
-pulling 2f15b3218f05{\ldots} 100\% ▕████████████████▏  487 B
-verifying sha256 digest
-writing manifest
-success 
-
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{80}{\boxspacing}
+\prompt{In}{incolor}{5}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{faker}
 \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
@@ -591,7 +569,7 @@ CSV-Dateien wurden erfolgreich im 'tables'-Ordner gespeichert.
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{81}{\boxspacing}
+\prompt{In}{incolor}{6}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{subprocess}
 
@@ -611,30 +589,28 @@ CSV-Dateien wurden erfolgreich im 'tables'-Ordner gespeichert.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 NAME                                ID              SIZE      MODIFIED
-qwen2.5:7b                          845dbda0ea48    4.7 GB    Less than a second
-ago
-custom\_qwen2.5:7b\_seed\_42\_temp\_0    2849624f7fb4    4.7 GB    Less than a second
-ago
+qwen2.5:7b                          845dbda0ea48    4.7 GB    13 seconds ago
+custom\_qwen2.5:7b\_seed\_42\_temp\_0    2849624f7fb4    4.7 GB    14 seconds ago
 
 Available models listed successfully.
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{82}{\boxspacing}
+\prompt{In}{incolor}{7}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{src}\PY{n+nn}{.}\PY{n+nn}{variables} \PY{k+kn}{import} \PY{n}{database\PYZus{}schema\PYZus{}mermaid}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{83}{\boxspacing}
+\prompt{In}{incolor}{8}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{preprompt} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Your task is to generate executable SQL queries based on my provided model. Please adhere strictly to my model. For each of my questions, generate an executable SELECT SQL query. Do not provide any comments or explanations, only the query. Give me only one query per Question, make sure to start the query with }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{SELECT}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{ and end it with a }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{;}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{. I am using a sqllite\PYZhy{}Database.}\PY{l+s+s2}{\PYZdq{}}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{97}{\boxspacing}
+\prompt{In}{incolor}{9}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Deine 5 Fachfragen in einer Liste}
 \PY{n}{liste\PYZus{}fachfragen} \PY{o}{=} \PY{p}{[}
@@ -649,7 +625,7 @@ Available models listed successfully.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{98}{\boxspacing}
+\prompt{In}{incolor}{ }{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{liste\PYZus{}model\PYZus{}output} \PY{o}{=} \PY{p}{[}\PY{p}{]} \PY{c+c1}{\PYZsh{} Liste, in welche gleich die Ouputs des Modells gepeichert werden}
 
@@ -675,27 +651,18 @@ Available models listed successfully.
     \PY{c+c1}{\PYZsh{} Output dekodieren und in der Liste speichern}
     \PY{n}{output} \PY{o}{=} \PY{n}{stdout}\PY{o}{.}\PY{n}{decode}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}
     \PY{n}{liste\PYZus{}model\PYZus{}output}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{output}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Speichern des Outputs in der Liste}
-    
-    \PY{c+c1}{\PYZsh{} Test für den Output:}
-    \PY{c+c1}{\PYZsh{} print(f\PYZdq{}Antwort für die Frage \PYZsq{}\PYZob{}frage\PYZcb{}\PYZsq{}:\PYZbs{}n\PYZob{}output\PYZcb{}\PYZbs{}n\PYZdq{})}
-    
-    \PY{c+c1}{\PYZsh{} \PYZsh{} Optional: Fehlerbehandlung}
-    \PY{c+c1}{\PYZsh{} if stderr:}
-    \PY{c+c1}{\PYZsh{}     print(f\PYZdq{}Fehler bei der Verarbeitung der Frage \PYZsq{}\PYZob{}frage\PYZcb{}\PYZsq{}: \PYZob{}stderr.decode().strip()\PYZcb{}\PYZbs{}n\PYZdq{})}
-
-\PY{c+c1}{\PYZsh{} Nach der Schleife: Die Liste liste\PYZus{}model\PYZus{}output enthält alle Antworten des Modells}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{99}{\boxspacing}
+\prompt{In}{incolor}{11}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{src}\PY{n+nn}{.}\PY{n+nn}{functions} \PY{k+kn}{import} \PY{n}{extract\PYZus{}sql\PYZus{}statement}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{100}{\boxspacing}
+\prompt{In}{incolor}{12}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Funktion, die den Output des Modells so trimmt, dass nur das SQL\PYZhy{}Statement stehen bleibt.}
 \PY{k+kn}{from} \PY{n+nn}{src}\PY{n+nn}{.}\PY{n+nn}{functions} \PY{k+kn}{import} \PY{n}{extract\PYZus{}sql\PYZus{}statement}
@@ -705,29 +672,22 @@ Available models listed successfully.
 
 \PY{c+c1}{\PYZsh{} Anwenden der Extraktionsfunktion}
 \PY{n}{trimmed\PYZus{}output} \PY{o}{=} \PY{n}{extract\PYZus{}sql\PYZus{}statement}\PY{p}{(}\PY{n}{output}\PY{p}{)}
-
-\PY{c+c1}{\PYZsh{} Test für die Ausgabe:}
-\PY{c+c1}{\PYZsh{} print(trimmed\PYZus{}output)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{101}{\boxspacing}
+\prompt{In}{incolor}{13}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Importiere die Funktion, die das SQL\PYZhy{}Statement extrahiert}
 \PY{k+kn}{from} \PY{n+nn}{src}\PY{n+nn}{.}\PY{n+nn}{functions} \PY{k+kn}{import} \PY{n}{extract\PYZus{}sql\PYZus{}statement}
 
 \PY{c+c1}{\PYZsh{} Neue Liste, die nur die getrimmten SQL\PYZhy{}Statements speichern wird}
 \PY{n}{liste\PYZus{}trimmed\PYZus{}sql} \PY{o}{=} \PY{p}{[}\PY{n}{extract\PYZus{}sql\PYZus{}statement}\PY{p}{(}\PY{n}{output}\PY{p}{)} \PY{k}{for} \PY{n}{output} \PY{o+ow}{in} \PY{n}{liste\PYZus{}model\PYZus{}output}\PY{p}{]}
-
-\PY{c+c1}{\PYZsh{} \PYZsh{} Test: Ausgabe der getrimmten SQL\PYZhy{}Statements zur Kontrolle}
-\PY{c+c1}{\PYZsh{} for trimmed\PYZus{}output in liste\PYZus{}trimmed\PYZus{}sql:}
-\PY{c+c1}{\PYZsh{}     print(f\PYZsq{}\PYZob{}trimmed\PYZus{}output\PYZcb{}\PYZbs{}n\PYZsq{})}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{102}{\boxspacing}
+\prompt{In}{incolor}{14}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{sqlite3}
 \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
@@ -735,7 +695,7 @@ Available models listed successfully.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{103}{\boxspacing}
+\prompt{In}{incolor}{15}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{src}\PY{n+nn}{.}\PY{n+nn}{functions} \PY{k+kn}{import} \PY{n}{create\PYZus{}tables}
 
@@ -749,7 +709,7 @@ Tabellen wurden erfolgreich erstellt.
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{104}{\boxspacing}
+\prompt{In}{incolor}{16}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Verbindung und Cursor erstellen}
 \PY{n}{conn} \PY{o}{=} \PY{n}{sqlite3}\PY{o}{.}\PY{n}{connect}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{university\PYZus{}database.db}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
@@ -758,9 +718,9 @@ Tabellen wurden erfolgreich erstellt.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{105}{\boxspacing}
+\prompt{In}{incolor}{17}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} Zeige alle Tabellen in der Datenbank an}
+\PY{c+c1}{\PYZsh{} Zeige alle Tabellen (Namen) in der Datenbank an}
 \PY{n}{cursor}\PY{o}{.}\PY{n}{execute}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SELECT name FROM sqlite\PYZus{}master WHERE type=}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{table}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{;}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{cursor}\PY{o}{.}\PY{n}{fetchall}\PY{p}{(}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
@@ -772,21 +732,21 @@ Tabellen wurden erfolgreich erstellt.
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{106}{\boxspacing}
+\prompt{In}{incolor}{18}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{src}\PY{n+nn}{.}\PY{n+nn}{functions} \PY{k+kn}{import} \PY{n}{import\PYZus{}csv\PYZus{}to\PYZus{}sqlite}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{107}{\boxspacing}
+\prompt{In}{incolor}{19}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{src}\PY{n+nn}{.}\PY{n+nn}{functions} \PY{k+kn}{import} \PY{n}{import\PYZus{}all\PYZus{}csv\PYZus{}to\PYZus{}sqlite}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{108}{\boxspacing}
+\prompt{In}{incolor}{20}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Beispielaufruf für den Ordner \PYZdq{}tables\PYZdq{} und eine persistente Datenbank}
 \PY{n}{import\PYZus{}all\PYZus{}csv\PYZus{}to\PYZus{}sqlite}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tables}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{db\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{university\PYZus{}database.db}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
@@ -800,9 +760,6 @@ Importiert: DEPARTMENT\_DIMENSION
 Tabelle 'DEPARTMENT\_DIMENSION' wurde aus 'DEPARTMENT\_DIMENSION.csv' importiert.
 Importiert: ENROLLMENT\_FACTS
 Tabelle 'ENROLLMENT\_FACTS' wurde aus 'ENROLLMENT\_FACTS.csv' importiert.
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Importiert: PROFESSOR\_DIMENSION
 Tabelle 'PROFESSOR\_DIMENSION' wurde aus 'PROFESSOR\_DIMENSION.csv' importiert.
 Importiert: STUDENT\_DIMENSION
@@ -810,10 +767,18 @@ Tabelle 'STUDENT\_DIMENSION' wurde aus 'STUDENT\_DIMENSION.csv' importiert.
     \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{109}{\boxspacing}
+\prompt{In}{incolor}{22}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Ausgabe des Experiments, optimiert für LaTeX}
+
 \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
-\PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k+kn}{import} \PY{n}{display}\PY{p}{,} \PY{n}{Markdown}
+
+\PY{c+c1}{\PYZsh{} Funktion zum Konvertieren eines DataFrames in eine LaTeX\PYZhy{}Tabelle}
+\PY{k}{def} \PY{n+nf}{df\PYZus{}to\PYZus{}latex}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{n}{df}\PY{o}{.}\PY{n}{to\PYZus{}latex}\PY{p}{(}\PY{n}{index}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Zähler für die Fragen initialisieren}
+\PY{n}{frage\PYZus{}nummer} \PY{o}{=} \PY{l+m+mi}{1}
 
 \PY{c+c1}{\PYZsh{} Schleife über die Fachfragen und zugehörigen SQL\PYZhy{}Statements}
 \PY{k}{for} \PY{n}{frage}\PY{p}{,} \PY{n}{sql\PYZus{}query} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{liste\PYZus{}fachfragen}\PY{p}{,} \PY{n}{liste\PYZus{}trimmed\PYZus{}sql}\PY{p}{)}\PY{p}{:}
@@ -821,299 +786,216 @@ Tabelle 'STUDENT\_DIMENSION' wurde aus 'STUDENT\_DIMENSION.csv' importiert.
         \PY{c+c1}{\PYZsh{} Führe die SQL\PYZhy{}Abfrage aus}
         \PY{n}{cursor}\PY{o}{.}\PY{n}{execute}\PY{p}{(}\PY{n}{sql\PYZus{}query}\PY{p}{)}
         
-        \PY{c+c1}{\PYZsh{} Markdown zur Frage anzeigen}
-        \PY{n}{display}\PY{p}{(}\PY{n}{Markdown}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZsh{}\PYZsh{}\PYZsh{} An das Modell gestellte Frage:}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZob{}}\PY{n}{frage}\PY{l+s+si}{\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} Frage und SQL\PYZhy{}Abfrage für LaTeX\PYZhy{}Ausgabe vorbereiten}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{rf}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{section*}\PY{l+s+se}{\PYZob{}\PYZob{}}\PY{l+s+s2}{Frage }\PY{l+s+si}{\PYZob{}}\PY{n}{frage\PYZus{}nummer}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{:}\PY{l+s+se}{\PYZcb{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{n}{frage}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} print(r\PYZdq{}\PYZbs{}textbf\PYZob{}\PYZdq{} + frage + \PYZdq{}\PYZcb{}\PYZdq{})}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
         
-        \PY{c+c1}{\PYZsh{} SQL\PYZhy{}Abfrage anzeigen}
-        \PY{n}{display}\PY{p}{(}\PY{n}{Markdown}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{} Durch das Modell generierte SQL\PYZhy{}Abfrage:}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{```sql}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZob{}}\PY{n}{sql\PYZus{}query}\PY{l+s+si}{\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{```}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{subsection*}\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{Durch das Modell generierte SQL\PYZhy{}Abfrage:\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{begin}\PY{l+s+si}{\PYZob{}minted\PYZcb{}}\PY{l+s+s2}{[fontsize=}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{small, breaklines, linenos]}\PY{l+s+si}{\PYZob{}sql\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{n}{sql\PYZus{}query}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{end}\PY{l+s+si}{\PYZob{}minted\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
         
-        \PY{c+c1}{\PYZsh{} Ergebnisse der SQL\PYZhy{}Abfrage in ein DataFrame laden und anzeigen}
+        \PY{c+c1}{\PYZsh{} Ergebnisse der SQL\PYZhy{}Abfrage in ein DataFrame laden und in LaTeX\PYZhy{}Format umwandeln}
         \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{cursor}\PY{o}{.}\PY{n}{fetchall}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{n}{description}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{description} \PY{o+ow}{in} \PY{n}{cursor}\PY{o}{.}\PY{n}{description}\PY{p}{]}\PY{p}{)}
         
-        \PY{c+c1}{\PYZsh{} DataFrame anzeigen}
-        \PY{n}{display}\PY{p}{(}\PY{n}{Markdown}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZsh{}\PYZsh{}\PYZsh{}\PYZsh{} Ergebnis der durch das Modell generierten SQL\PYZhy{}Abfrage:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
-        \PY{n}{display}\PY{p}{(}\PY{n}{df}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} DataFrame in LaTeX\PYZhy{}Tabellenformat anzeigen}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{subsection*}\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{Ergebnis der durch das Modell generierten SQL\PYZhy{}Abfrage:\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{n}{df\PYZus{}to\PYZus{}latex}\PY{p}{(}\PY{n}{df}\PY{p}{)}\PY{p}{)}
         
-        \PY{c+c1}{\PYZsh{} Trennlinie zur besseren Übersicht}
-        \PY{n}{display}\PY{p}{(}\PY{n}{Markdown}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} Frage\PYZhy{}Zähler erhöhen}
+        \PY{n}{frage\PYZus{}nummer} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
 
     \PY{k}{except} \PY{n+ne}{Exception} \PY{k}{as} \PY{n}{e}\PY{p}{:}
-        \PY{c+c1}{\PYZsh{} Fehlerbehandlung bei SQL\PYZhy{}Ausführungsfehlern mit Markdown}
-        \PY{n}{display}\PY{p}{(}\PY{n}{Markdown}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{**Fehler bei der Ausführung der Abfrage für die Frage }\PY{l+s+s2}{\PYZsq{}}\PY{l+s+si}{\PYZob{}}\PY{n}{frage}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZsq{}}\PY{l+s+s2}{:** }\PY{l+s+si}{\PYZob{}}\PY{n}{e}\PY{l+s+si}{\PYZcb{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
-        \PY{n}{display}\PY{p}{(}\PY{n}{Markdown}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}\PYZhy{}\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Trennlinie für Fehlerfall}
+        \PY{c+c1}{\PYZsh{} Fehlerbehandlung bei SQL\PYZhy{}Ausführungsfehlern in LaTeX\PYZhy{}Format}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{rf}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{section*}\PY{l+s+se}{\PYZob{}\PYZob{}}\PY{l+s+s2}{Frage }\PY{l+s+si}{\PYZob{}}\PY{n}{frage\PYZus{}nummer}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{: Fehler bei der Ausführung der Abfrage}\PY{l+s+se}{\PYZcb{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{textbf}\PY{l+s+si}{\PYZob{}Frage:\PYZcb{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n}{frage}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{textbf}\PY{l+s+si}{\PYZob{}Fehlermeldung:\PYZcb{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{e}\PY{p}{)}\PY{p}{)}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{noindent}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{rule}\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{textwidth\PYZcb{}}\PY{l+s+si}{\PYZob{}0.4pt\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{an-das-modell-gestellte-frage}{%
-\subsubsection{An das Modell gestellte
-Frage:}\label{an-das-modell-gestellte-frage}}
-
-Welche Kurse werden am häufigsten von Studenten wiederholt? Zeige die
-Kursnamen und die Anzahl der Wiederholungen.
-
-    
-    \hypertarget{durch-das-modell-generierte-sql-abfrage}{%
-\paragraph{Durch das Modell generierte
-SQL-Abfrage:}\label{durch-das-modell-generierte-sql-abfrage}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{SELECT}\NormalTok{ C.Course\_Name, }\FunctionTok{COUNT}\NormalTok{(E.Enrollment\_ID) }\KeywordTok{AS}\NormalTok{ Repeated\_Course\_Count}
-\KeywordTok{FROM}\NormalTok{ ENROLLMENT\_FACTS E}
-\KeywordTok{JOIN}\NormalTok{ COURSE\_DIMENSION C }\KeywordTok{ON}\NormalTok{ E.Course\_ID }\OperatorTok{=}\NormalTok{ C.Course\_ID}
-\KeywordTok{WHERE}\NormalTok{ E.Grade }\KeywordTok{IN}\NormalTok{ (}\StringTok{\textquotesingle{}F\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}W\textquotesingle{}}\NormalTok{)}
-\KeywordTok{GROUP} \KeywordTok{BY}\NormalTok{ C.Course\_Name}
-\KeywordTok{ORDER} \KeywordTok{BY}\NormalTok{ Repeated\_Course\_Count }\KeywordTok{DESC}\NormalTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-    
-    \hypertarget{ergebnis-der-durch-das-modell-generierten-sql-abfrage}{%
-\paragraph{Ergebnis der durch das Modell generierten
-SQL-Abfrage:}\label{ergebnis-der-durch-das-modell-generierten-sql-abfrage}}
-
-    
-    
     \begin{Verbatim}[commandchars=\\\{\}]
-                   Course\_Name  Repeated\_Course\_Count
-0      Programming with Python                     11
-1                Deep Learning                      9
-2           Data Visualization                      8
-3                 Ethics in AI                      7
-4  Statistics for Data Science                      6
-5            Big Data Analysis                      6
-6             Database Systems                      4
-7          Data Science Basics                      4
-8    Advanced Machine Learning                      4
-9           Project Management                      3
-    \end{Verbatim}
+\textbackslash{}section*\{Frage 1:\}
+Welche Kurse werden am häufigsten von Studenten wiederholt? Zeige die Kursnamen
+und die Anzahl der Wiederholungen.
 
-    
-    \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-    
-    \hypertarget{an-das-modell-gestellte-frage}{%
-\subsubsection{An das Modell gestellte
-Frage:}\label{an-das-modell-gestellte-frage}}
+\textbackslash{}subsection*\{Durch das Modell generierte SQL-Abfrage:\}
+\textbackslash{}begin\{minted\}[fontsize=\textbackslash{}small, breaklines, linenos]\{sql\}
+SELECT C.Course\_Name, COUNT(E.Enrollment\_ID) AS Repeated\_Course\_Count
+FROM ENROLLMENT\_FACTS E
+JOIN COURSE\_DIMENSION C ON E.Course\_ID = C.Course\_ID
+WHERE E.Grade IN ('F', 'W')
+GROUP BY C.Course\_Name
+ORDER BY Repeated\_Course\_Count DESC;
+\textbackslash{}end\{minted\}
+\textbackslash{}subsection*\{Ergebnis der durch das Modell generierten SQL-Abfrage:\}
+\textbackslash{}begin\{tabular\}\{lr\}
+\textbackslash{}toprule
+                Course\textbackslash{}\_Name \&  Repeated\textbackslash{}\_Course\textbackslash{}\_Count \textbackslash{}\textbackslash{}
+\textbackslash{}midrule
+    Programming with Python \&                     11 \textbackslash{}\textbackslash{}
+              Deep Learning \&                      9 \textbackslash{}\textbackslash{}
+         Data Visualization \&                      8 \textbackslash{}\textbackslash{}
+               Ethics in AI \&                      7 \textbackslash{}\textbackslash{}
+Statistics for Data Science \&                      6 \textbackslash{}\textbackslash{}
+          Big Data Analysis \&                      6 \textbackslash{}\textbackslash{}
+           Database Systems \&                      4 \textbackslash{}\textbackslash{}
+        Data Science Basics \&                      4 \textbackslash{}\textbackslash{}
+  Advanced Machine Learning \&                      4 \textbackslash{}\textbackslash{}
+         Project Management \&                      3 \textbackslash{}\textbackslash{}
+\textbackslash{}bottomrule
+\textbackslash{}end\{tabular\}
 
+\textbackslash{}section*\{Frage 2:\}
 Welcher Kurs hat die meisten Teilnehmer? Zeige den Kursnamen und die
 Teilnehmerzahl.
 
-    
-    \hypertarget{durch-das-modell-generierte-sql-abfrage}{%
-\paragraph{Durch das Modell generierte
-SQL-Abfrage:}\label{durch-das-modell-generierte-sql-abfrage}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{SELECT}\NormalTok{ C.Course\_Name, }\FunctionTok{COUNT}\NormalTok{(E.Student\_ID) }\KeywordTok{AS}\NormalTok{ Participant\_Count}
-\KeywordTok{FROM}\NormalTok{ ENROLLMENT\_FACTS E}
-\KeywordTok{JOIN}\NormalTok{ COURSE\_DIMENSION C }\KeywordTok{ON}\NormalTok{ E.Course\_ID }\OperatorTok{=}\NormalTok{ C.Course\_ID}
-\KeywordTok{GROUP} \KeywordTok{BY}\NormalTok{ C.Course\_Name}
-\KeywordTok{ORDER} \KeywordTok{BY}\NormalTok{ Participant\_Count }\KeywordTok{DESC}
-\KeywordTok{LIMIT} \DecValTok{1}\NormalTok{;}
-\end{Highlighting}
-\end{Shaded}
+\textbackslash{}subsection*\{Durch das Modell generierte SQL-Abfrage:\}
+\textbackslash{}begin\{minted\}[fontsize=\textbackslash{}small, breaklines, linenos]\{sql\}
+SELECT C.Course\_Name, COUNT(E.Student\_ID) AS Participant\_Count
+FROM ENROLLMENT\_FACTS E
+JOIN COURSE\_DIMENSION C ON E.Course\_ID = C.Course\_ID
+GROUP BY C.Course\_Name
+ORDER BY Participant\_Count DESC
+LIMIT 1;
+\textbackslash{}end\{minted\}
+\textbackslash{}subsection*\{Ergebnis der durch das Modell generierten SQL-Abfrage:\}
+\textbackslash{}begin\{tabular\}\{lr\}
+\textbackslash{}toprule
+      Course\textbackslash{}\_Name \&  Participant\textbackslash{}\_Count \textbackslash{}\textbackslash{}
+\textbackslash{}midrule
+Big Data Analysis \&                 40 \textbackslash{}\textbackslash{}
+\textbackslash{}bottomrule
+\textbackslash{}end\{tabular\}
 
-    
-    \hypertarget{ergebnis-der-durch-das-modell-generierten-sql-abfrage}{%
-\paragraph{Ergebnis der durch das Modell generierten
-SQL-Abfrage:}\label{ergebnis-der-durch-das-modell-generierten-sql-abfrage}}
+\textbackslash{}section*\{Frage 3:\}
+Wie viele Einschreibungen gab es pro Monat im letzten Jahr? Zeige die Monate und
+die Anzahl der Einschreibungen.
 
-    
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-         Course\_Name  Participant\_Count
-0  Big Data Analysis                 40
-    \end{Verbatim}
 
-    
-    \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\textbackslash{}subsection*\{Durch das Modell generierte SQL-Abfrage:\}
+\textbackslash{}begin\{minted\}[fontsize=\textbackslash{}small, breaklines, linenos]\{sql\}
+SELECT strftime('\%Y-\%m', Enrollment\_Date) AS Month, COUNT(*) AS Enrollment\_Count
+FROM ENROLLMENT\_FACTS
+WHERE Enrollment\_Date BETWEEN DATE('now', '-1 year') AND DATE('now')
+GROUP BY Month;
+\textbackslash{}end\{minted\}
+\textbackslash{}subsection*\{Ergebnis der durch das Modell generierten SQL-Abfrage:\}
+\textbackslash{}begin\{tabular\}\{lr\}
+\textbackslash{}toprule
+  Month \&  Enrollment\textbackslash{}\_Count \textbackslash{}\textbackslash{}
+\textbackslash{}midrule
+2023-11 \&                 1 \textbackslash{}\textbackslash{}
+2023-12 \&                 6 \textbackslash{}\textbackslash{}
+\textbackslash{}bottomrule
+\textbackslash{}end\{tabular\}
 
-    
-    \hypertarget{an-das-modell-gestellte-frage}{%
-\subsubsection{An das Modell gestellte
-Frage:}\label{an-das-modell-gestellte-frage}}
+\textbackslash{}section*\{Frage 4:\}
+Welche Studenten haben sich im letzten Jahr eingeschrieben? Zeige die Namen und
+Einschreibedatum.
 
-Wie viele Einschreibungen gab es pro Monat im letzten Jahr? Zeige die
-Monate und die Anzahl der Einschreibungen.
 
-    
-    \hypertarget{durch-das-modell-generierte-sql-abfrage}{%
-\paragraph{Durch das Modell generierte
-SQL-Abfrage:}\label{durch-das-modell-generierte-sql-abfrage}}
+\textbackslash{}subsection*\{Durch das Modell generierte SQL-Abfrage:\}
+\textbackslash{}begin\{minted\}[fontsize=\textbackslash{}small, breaklines, linenos]\{sql\}
+SELECT S.First\_Name, S.Last\_Name, E.Enrollment\_Date
+FROM STUDENT\_DIMENSION S
+JOIN ENROLLMENT\_FACTS E ON S.Student\_ID = E.Student\_ID
+WHERE E.Enrollment\_Date >= DATE('now', '-1 year');
+\textbackslash{}end\{minted\}
+\textbackslash{}subsection*\{Ergebnis der durch das Modell generierten SQL-Abfrage:\}
+\textbackslash{}begin\{tabular\}\{lll\}
+\textbackslash{}toprule
+First\textbackslash{}\_Name \& Last\textbackslash{}\_Name \& Enrollment\textbackslash{}\_Date \textbackslash{}\textbackslash{}
+\textbackslash{}midrule
+   Whitney \&   Hensley \&      2023-12-24 \textbackslash{}\textbackslash{}
+  Patricia \& Rodriguez \&      2023-12-24 \textbackslash{}\textbackslash{}
+     Tasha \&      Kidd \&      2023-12-14 \textbackslash{}\textbackslash{}
+    George \&    Morgan \&      2023-11-18 \textbackslash{}\textbackslash{}
+     Debra \&    Gaines \&      2023-12-04 \textbackslash{}\textbackslash{}
+   Jeffrey \&    Morgan \&      2023-12-23 \textbackslash{}\textbackslash{}
+    Amanda \&  Humphrey \&      2023-12-23 \textbackslash{}\textbackslash{}
+\textbackslash{}bottomrule
+\textbackslash{}end\{tabular\}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{SELECT}\NormalTok{ strftime(}\StringTok{\textquotesingle{}\%Y{-}\%m\textquotesingle{}}\NormalTok{, Enrollment\_Date) }\KeywordTok{AS} \DataTypeTok{Month}\NormalTok{, }\FunctionTok{COUNT}\NormalTok{(}\OperatorTok{*}\NormalTok{) }\KeywordTok{AS}\NormalTok{ Enrollment\_Count }
-\KeywordTok{FROM}\NormalTok{ ENROLLMENT\_FACTS }
-\KeywordTok{WHERE}\NormalTok{ Enrollment\_Date }\KeywordTok{BETWEEN} \DataTypeTok{DATE}\NormalTok{(}\StringTok{\textquotesingle{}now\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}{-}1 year\textquotesingle{}}\NormalTok{) }\KeywordTok{AND} \DataTypeTok{DATE}\NormalTok{(}\StringTok{\textquotesingle{}now\textquotesingle{}}\NormalTok{) }
-\KeywordTok{GROUP} \KeywordTok{BY} \DataTypeTok{Month}\NormalTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-    
-    \hypertarget{ergebnis-der-durch-das-modell-generierten-sql-abfrage}{%
-\paragraph{Ergebnis der durch das Modell generierten
-SQL-Abfrage:}\label{ergebnis-der-durch-das-modell-generierten-sql-abfrage}}
-
-    
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-     Month  Enrollment\_Count
-0  2023-11                 1
-1  2023-12                 6
-    \end{Verbatim}
-
-    
-    \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-    
-    \hypertarget{an-das-modell-gestellte-frage}{%
-\subsubsection{An das Modell gestellte
-Frage:}\label{an-das-modell-gestellte-frage}}
-
-Welche Studenten haben sich im letzten Jahr eingeschrieben? Zeige die
-Namen und Einschreibedatum.
-
-    
-    \hypertarget{durch-das-modell-generierte-sql-abfrage}{%
-\paragraph{Durch das Modell generierte
-SQL-Abfrage:}\label{durch-das-modell-generierte-sql-abfrage}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{SELECT}\NormalTok{ S.First\_Name, S.Last\_Name, E.Enrollment\_Date }
-\KeywordTok{FROM}\NormalTok{ STUDENT\_DIMENSION S }
-\KeywordTok{JOIN}\NormalTok{ ENROLLMENT\_FACTS E }\KeywordTok{ON}\NormalTok{ S.Student\_ID }\OperatorTok{=}\NormalTok{ E.Student\_ID }
-\KeywordTok{WHERE}\NormalTok{ E.Enrollment\_Date }\OperatorTok{\textgreater{}=} \DataTypeTok{DATE}\NormalTok{(}\StringTok{\textquotesingle{}now\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}{-}1 year\textquotesingle{}}\NormalTok{);}
-\end{Highlighting}
-\end{Shaded}
-
-    
-    \hypertarget{ergebnis-der-durch-das-modell-generierten-sql-abfrage}{%
-\paragraph{Ergebnis der durch das Modell generierten
-SQL-Abfrage:}\label{ergebnis-der-durch-das-modell-generierten-sql-abfrage}}
-
-    
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-  First\_Name  Last\_Name Enrollment\_Date
-0    Whitney    Hensley      2023-12-24
-1   Patricia  Rodriguez      2023-12-24
-2      Tasha       Kidd      2023-12-14
-3     George     Morgan      2023-11-18
-4      Debra     Gaines      2023-12-04
-5    Jeffrey     Morgan      2023-12-23
-6     Amanda   Humphrey      2023-12-23
-    \end{Verbatim}
-
-    
-    \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-    
-    \hypertarget{an-das-modell-gestellte-frage}{%
-\subsubsection{An das Modell gestellte
-Frage:}\label{an-das-modell-gestellte-frage}}
-
+\textbackslash{}section*\{Frage 5:\}
 Wie viele verschiedene Fächer unterrichtet jede Abteilung? Zeige die
 Abteilungsnamen und Anzahl der Fächer.
 
-    
-    \hypertarget{durch-das-modell-generierte-sql-abfrage}{%
-\paragraph{Durch das Modell generierte
-SQL-Abfrage:}\label{durch-das-modell-generierte-sql-abfrage}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{SELECT}\NormalTok{ DEPARTMENT\_DIMENSION.Department\_Name, }\FunctionTok{COUNT}\NormalTok{(COURSE\_DIMENSION.Course\_ID) }\KeywordTok{AS}\NormalTok{ Number\_of\_Courses}
-\KeywordTok{FROM}\NormalTok{ COURSE\_DIMENSION}
-\KeywordTok{JOIN}\NormalTok{ DEPARTMENT\_DIMENSION }\KeywordTok{ON}\NormalTok{ COURSE\_DIMENSION.Department\_ID }\OperatorTok{=}\NormalTok{ DEPARTMENT\_DIMENSION.Department\_ID}
-\KeywordTok{GROUP} \KeywordTok{BY}\NormalTok{ DEPARTMENT\_DIMENSION.Department\_Name;}
-\end{Highlighting}
-\end{Shaded}
+\textbackslash{}subsection*\{Durch das Modell generierte SQL-Abfrage:\}
+\textbackslash{}begin\{minted\}[fontsize=\textbackslash{}small, breaklines, linenos]\{sql\}
+SELECT DEPARTMENT\_DIMENSION.Department\_Name, COUNT(COURSE\_DIMENSION.Course\_ID)
+AS Number\_of\_Courses
+FROM COURSE\_DIMENSION
+JOIN DEPARTMENT\_DIMENSION ON COURSE\_DIMENSION.Department\_ID =
+DEPARTMENT\_DIMENSION.Department\_ID
+GROUP BY DEPARTMENT\_DIMENSION.Department\_Name;
+\textbackslash{}end\{minted\}
+\textbackslash{}subsection*\{Ergebnis der durch das Modell generierten SQL-Abfrage:\}
+\textbackslash{}begin\{tabular\}\{lr\}
+\textbackslash{}toprule
+        Department\textbackslash{}\_Name \&  Number\textbackslash{}\_of\textbackslash{}\_Courses \textbackslash{}\textbackslash{}
+\textbackslash{}midrule
+Business Administration \&                  3 \textbackslash{}\textbackslash{}
+       Computer Science \&                  4 \textbackslash{}\textbackslash{}
+             Psychology \&                  3 \textbackslash{}\textbackslash{}
+\textbackslash{}bottomrule
+\textbackslash{}end\{tabular\}
 
-    
-    \hypertarget{ergebnis-der-durch-das-modell-generierten-sql-abfrage}{%
-\paragraph{Ergebnis der durch das Modell generierten
-SQL-Abfrage:}\label{ergebnis-der-durch-das-modell-generierten-sql-abfrage}}
+\textbackslash{}section*\{Frage 6:\}
+Welche Studenten haben Kurse aus mindestens drei verschiedenen Abteilungen
+belegt? Zeige die Namen der Studenten und die Anzahl der Abteilungen.
 
-    
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-           Department\_Name  Number\_of\_Courses
-0  Business Administration                  3
-1         Computer Science                  4
-2               Psychology                  3
+
+\textbackslash{}subsection*\{Durch das Modell generierte SQL-Abfrage:\}
+\textbackslash{}begin\{minted\}[fontsize=\textbackslash{}small, breaklines, linenos]\{sql\}
+SELECT S.First\_Name, S.Last\_Name, COUNT(DISTINCT D.Department\_Name) AS
+Number\_of\_Departments
+FROM STUDENT\_DIMENSION S
+JOIN ENROLLMENT\_FACTS E ON S.Student\_ID = E.Student\_ID
+JOIN COURSE\_DIMENSION C ON E.Course\_ID = C.Course\_ID
+JOIN DEPARTMENT\_DIMENSION D ON C.Department\_ID = D.Department\_ID
+GROUP BY S.Student\_ID, S.First\_Name, S.Last\_Name
+HAVING COUNT(DISTINCT D.Department\_Name) >= 3;
+\textbackslash{}end\{minted\}
+\textbackslash{}subsection*\{Ergebnis der durch das Modell generierten SQL-Abfrage:\}
+\textbackslash{}begin\{tabular\}\{llr\}
+\textbackslash{}toprule
+ First\textbackslash{}\_Name \& Last\textbackslash{}\_Name \&  Number\textbackslash{}\_of\textbackslash{}\_Departments \textbackslash{}\textbackslash{}
+\textbackslash{}midrule
+   Danielle \&     Smith \&                      3 \textbackslash{}\textbackslash{}
+    Jeffrey \&   Herrera \&                      3 \textbackslash{}\textbackslash{}
+    Anthony \&     Mason \&                      3 \textbackslash{}\textbackslash{}
+      James \&     White \&                      3 \textbackslash{}\textbackslash{}
+    Jeffrey \&     Evans \&                      3 \textbackslash{}\textbackslash{}
+       Adam \& Hernandez \&                      3 \textbackslash{}\textbackslash{}
+      Linda \&    Farmer \&                      3 \textbackslash{}\textbackslash{}
+      Susan \&     Smith \&                      3 \textbackslash{}\textbackslash{}
+Christopher \&     Smith \&                      3 \textbackslash{}\textbackslash{}
+    Lindsay \&    Parker \&                      3 \textbackslash{}\textbackslash{}
+    Jessica \&     Brown \&                      3 \textbackslash{}\textbackslash{}
+     Teresa \&    Arroyo \&                      3 \textbackslash{}\textbackslash{}
+     Jeremy \&     Baker \&                      3 \textbackslash{}\textbackslash{}
+    Deborah \&  Martinez \&                      3 \textbackslash{}\textbackslash{}
+    Chelsea \&    Walker \&                      3 \textbackslash{}\textbackslash{}
+     Angela \&     Perez \&                      3 \textbackslash{}\textbackslash{}
+    Leonard \&   Mueller \&                      3 \textbackslash{}\textbackslash{}
+      Diana \&   Aguirre \&                      3 \textbackslash{}\textbackslash{}
+    Rachael \&    Garcia \&                      3 \textbackslash{}\textbackslash{}
+   Reginald \&    Powell \&                      3 \textbackslash{}\textbackslash{}
+    Jeffrey \&    Morgan \&                      3 \textbackslash{}\textbackslash{}
+    Whitney \&   Hensley \&                      3 \textbackslash{}\textbackslash{}
+      Bryan \&     Ramos \&                      3 \textbackslash{}\textbackslash{}
+\textbackslash{}bottomrule
+\textbackslash{}end\{tabular\}
+
     \end{Verbatim}
 
-    
-    \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-    
-    \hypertarget{an-das-modell-gestellte-frage}{%
-\subsubsection{An das Modell gestellte
-Frage:}\label{an-das-modell-gestellte-frage}}
-
-Welche Studenten haben Kurse aus mindestens drei verschiedenen
-Abteilungen belegt? Zeige die Namen der Studenten und die Anzahl der
-Abteilungen.
-
-    
-    \hypertarget{durch-das-modell-generierte-sql-abfrage}{%
-\paragraph{Durch das Modell generierte
-SQL-Abfrage:}\label{durch-das-modell-generierte-sql-abfrage}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{SELECT}\NormalTok{ S.First\_Name, S.Last\_Name, }\FunctionTok{COUNT}\NormalTok{(}\KeywordTok{DISTINCT}\NormalTok{ D.Department\_Name) }\KeywordTok{AS}\NormalTok{ Number\_of\_Departments}
-\KeywordTok{FROM}\NormalTok{ STUDENT\_DIMENSION S}
-\KeywordTok{JOIN}\NormalTok{ ENROLLMENT\_FACTS E }\KeywordTok{ON}\NormalTok{ S.Student\_ID }\OperatorTok{=}\NormalTok{ E.Student\_ID}
-\KeywordTok{JOIN}\NormalTok{ COURSE\_DIMENSION C }\KeywordTok{ON}\NormalTok{ E.Course\_ID }\OperatorTok{=}\NormalTok{ C.Course\_ID}
-\KeywordTok{JOIN}\NormalTok{ DEPARTMENT\_DIMENSION D }\KeywordTok{ON}\NormalTok{ C.Department\_ID }\OperatorTok{=}\NormalTok{ D.Department\_ID}
-\KeywordTok{GROUP} \KeywordTok{BY}\NormalTok{ S.Student\_ID, S.First\_Name, S.Last\_Name}
-\KeywordTok{HAVING} \FunctionTok{COUNT}\NormalTok{(}\KeywordTok{DISTINCT}\NormalTok{ D.Department\_Name) }\OperatorTok{\textgreater{}=} \DecValTok{3}\NormalTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-    
-    \hypertarget{ergebnis-der-durch-das-modell-generierten-sql-abfrage}{%
-\paragraph{Ergebnis der durch das Modell generierten
-SQL-Abfrage:}\label{ergebnis-der-durch-das-modell-generierten-sql-abfrage}}
-
-    
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-     First\_Name  Last\_Name  Number\_of\_Departments
-0      Danielle      Smith                      3
-1       Jeffrey    Herrera                      3
-2       Anthony      Mason                      3
-3         James      White                      3
-4       Jeffrey      Evans                      3
-5          Adam  Hernandez                      3
-6         Linda     Farmer                      3
-7         Susan      Smith                      3
-8   Christopher      Smith                      3
-9       Lindsay     Parker                      3
-10      Jessica      Brown                      3
-11       Teresa     Arroyo                      3
-12       Jeremy      Baker                      3
-13      Deborah   Martinez                      3
-14      Chelsea     Walker                      3
-15       Angela      Perez                      3
-16      Leonard    Mueller                      3
-17        Diana    Aguirre                      3
-18      Rachael     Garcia                      3
-19     Reginald     Powell                      3
-20      Jeffrey     Morgan                      3
-21      Whitney    Hensley                      3
-22        Bryan      Ramos                      3
-    \end{Verbatim}
-
-    
-    \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-    
 
     % Add a bibliography block to the postdoc
     

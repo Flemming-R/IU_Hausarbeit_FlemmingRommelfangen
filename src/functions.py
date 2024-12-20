@@ -16,7 +16,7 @@ def extract_sql_statement(output):
     """
     match = re.search(r"(SELECT.*?;)", output, re.DOTALL | re.IGNORECASE)
     if match:
-        return match.group(1).strip()  # Gibt das gefundene SQL-Statement zurück, ohne zusätzliche Leerzeichen
+        return match.group(1).strip()
     else:
         return "No SQL statement found."
 
@@ -38,14 +38,13 @@ def import_csv_to_sqlite(csv_file, table_name, db_name=':memory:'):
     Returns:
     None
     """
-    # Verbindung zur SQLite-Datenbank herstellen
     conn = sqlite3.connect(db_name)
     try:
-        df = pd.read_csv(csv_file)  # CSV-Datei einlesen
-        df.to_sql(table_name, conn, if_exists='replace', index=False)  # Daten in die SQLite-Tabelle importieren
+        df = pd.read_csv(csv_file)
+        df.to_sql(table_name, conn, if_exists='replace', index=False)
         print(f"Importiert: {table_name}")
     finally:
-        conn.close()  # Datenbankverbindung schließen
+        conn.close()
 
 def import_all_csv_to_sqlite(folder_path, db_name=':memory:'):
     """
@@ -58,18 +57,16 @@ def import_all_csv_to_sqlite(folder_path, db_name=':memory:'):
     Returns:
     None
     """
-    # Für jede CSV-Datei im Ordner
     for file_name in os.listdir(folder_path):
-        if file_name.endswith('.csv'):  # Nur CSV-Dateien
+        if file_name.endswith('.csv'):
             csv_file_path = os.path.join(folder_path, file_name)
-            table_name = os.path.splitext(file_name)[0]  # Tabellenname ohne Dateiendung
+            table_name = os.path.splitext(file_name)[0]
             import_csv_to_sqlite(csv_file_path, table_name, db_name)
             print(f"Tabelle '{table_name}' wurde aus '{file_name}' importiert.")
 
 
 import random
 from datetime import datetime, timedelta
-# Funktion, um zufällige Datumswerte zu erzeugen
 def random_date(start, end):
     return start + timedelta(days=random.randint(0, (end - start).days))
 
@@ -85,7 +82,6 @@ def create_tables(db_name='university_database.db'):
     Parameters:
     db_name (str): The name of the SQLite database file. Default is 'university_database.db'.
     """
-    # Verbindung zur SQLite-Datenbank herstellen (oder erstellen, falls sie noch nicht existiert)
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
 
